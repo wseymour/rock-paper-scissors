@@ -4,6 +4,11 @@ const plays = {
     "Scissors": 2
 }
 
+const wins = {
+    "player": 0,
+    "comp": 0
+}
+
 function convertGuess(guess) {
     if (guess === 0) {
         return "Rock";
@@ -24,19 +29,33 @@ function rockPaperScissors(playerSelection, computerSelection) {
     if (plays[playerSelection] == plays[computerSelection]) {
         return "It's a Draw!";
     } else if ((plays[playerSelection] + 1) % 3 === plays[computerSelection]) {
-        return `You lose! ${computerSelection} beats ${playerSelection}.`
+        wins.comp += 1;
+        return `You lose! ${computerSelection} beats ${playerSelection}.`;
     } else {
-        return `You win! ${playerSelection} beats ${computerSelection}.`
+        wins.player += 1;
+        return `You win! ${playerSelection} beats ${computerSelection}.`;
+    }
+}
+
+function printWinner() {
+    "Player has ${wins.player} wins. Computer has ${wins.comp} wins."
+    if (wins.player > wins.comp) {
+        return "You win!";
+    } else if (wins.player < wins.comp) {
+        return "Computer wins!";
+    } else {
+        return "It's a draw!";
     }
 }
 
 function game(){
-    playerWins = 0;
-    compWins = 0;
-
     for (i = 0; i < 5; i++) {
         let guess = prompt("Choose 'Rock', 'Paper', or 'Scissors': ");
-
+//TODO - get input working and scrub for use.
         rockPaperScissors()
     }
 }
+
+game();
+console.log(printWinner())
+
