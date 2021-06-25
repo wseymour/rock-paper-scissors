@@ -57,5 +57,6 @@ function game(){
 }
 
 game();
-console.log(printWinner())
+console.log(printWinner());
+
 
