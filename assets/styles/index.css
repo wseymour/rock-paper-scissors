@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    padding-top: 50px;
+}
+
+button {
+    width: 100px;
+    padding: 10px 0 10px 0;
+    background-color: rgb(97, 95, 95);
+    color: white;
+}
+
+#score {
+    height: 50px;
+    margin: 10px;
+}
